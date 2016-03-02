@@ -1,0 +1,25 @@
+<h1>show view, shows 1 restaurant</h1>
+
+<%= @restaurant.name %>
+<%= @restaurant.description %>
+<%= @restaurant.stars %>
+<%= @restaurant.address %>
+
+<%= link_to "destroy", restaurant_path(@restaurant),
+method: :delete %>
+
+<%= link_to "back to all restaurants", restaurants_path %>
+
+<%= link_to "Edit resaurant", edit_restaurant_path %>
+
+<%= link_to "add new review", new_restaurant_review_path(@restaurant) %>
+
+
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>
+      <%= review.content %>
+      <%= review.rating %>
+    </li>
+  <% end %>
+</ul>
